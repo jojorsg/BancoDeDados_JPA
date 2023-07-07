@@ -7,6 +7,8 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>model.basic.User</class>
         <class>model.basic.Product</class>
+        <class>model.basic.Order</class>
+        <class>model.basic.ItemOrdered</class>
 
 
         <properties>
@@ -21,7 +23,7 @@
 
             <property name="hibernate.dialect"
                       value="org.hibernate.dialect.MySQL57Dialect"/>
-            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
         </properties>
