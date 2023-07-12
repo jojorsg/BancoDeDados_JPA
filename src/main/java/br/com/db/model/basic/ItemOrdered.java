@@ -13,7 +13,7 @@ public class ItemOrdered {
     @ManyToOne
     private OrderEntity order;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Product product;
 
     @Column(nullable = false)

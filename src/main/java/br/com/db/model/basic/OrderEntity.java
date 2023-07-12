@@ -2,6 +2,7 @@ package br.com.db.model.basic;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class OrderEntity {
@@ -12,6 +13,9 @@ public class OrderEntity {
 
     @Column(nullable = false)
     private Date date;
+
+    @OneToMany(mappedBy = "order", fetch = FetchType.LAZY)
+    private List<ItemOrdered> items;
 
     public OrderEntity() {
         this(new Date());
@@ -35,5 +39,13 @@ public class OrderEntity {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public List<ItemOrdered> getItems() {
+        return items;
+    }
+
+    public void setItems(List<ItemOrdered> items) {
+        this.items = items;
     }
 }
