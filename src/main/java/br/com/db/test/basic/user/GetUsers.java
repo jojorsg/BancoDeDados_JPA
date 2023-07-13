@@ -1,4 +1,4 @@
-package br.com.db.test.basic;
+package br.com.db.test.basic.user;
 
 import br.com.db.model.basic.User;
 

@@ -1,4 +1,4 @@
-package br.com.db.test.basic;
+package br.com.db.test.basic.product;
 
 import br.com.db.infra.DAO;
 import br.com.db.model.basic.Product;

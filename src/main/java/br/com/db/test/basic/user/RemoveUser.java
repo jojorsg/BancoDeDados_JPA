@@ -1,4 +1,4 @@
-package br.com.db.test.basic;
+package br.com.db.test.basic.user;
 
 import br.com.db.model.basic.User;
 
@@ -6,21 +6,21 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class NewUser {
+public class RemoveUser {
 
     public static void main(String[] args) {
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("BancoDeDados_JPA");
         EntityManager em = emf.createEntityManager();
 
-        User newUser = new User("Josué", "josue@gmail.com");
+        User user = em.find(User.class, 1L);
 
-        em.getTransaction().begin();
-        em.persist(newUser);
-        em.getTransaction().commit();
-
-        String message = "O ID gerado para este usuário é: " + newUser.getId();
-        System.out.println(message);
+        if(user != null) {
+            em.getTransaction().begin();
+            em.remove(user);
+            em.getTransaction().commit();
+            System.out.println("O usuário foi removido com sucesso!");
+        }
 
         em.close();
         emf.close();
